@@ -1,0 +1,289 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script
+    type="module"
+    src="https://gradio.s3-us-west-2.amazonaws.com/3.23.0/gradio.js"
+  ></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      --webkit-font-smoothing: antialiased;
+      --moz-osx-font-smoothing: grayscale;
+      margin: 0;
+      font-family: "Lato", sans-serif;
+    }
+
+    button {
+      font-family: "Lato", sans-serif;
+    }
+
+    .bg-gray-900 {
+      background-color: #121826;
+    }
+
+    .text-white {
+      color: white;
+      text-decoration: none;
+    }
+
+    .block {
+      display: block;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .justify-center {
+      justify-content: center;
+    }
+
+    .m-8 {
+      margin: 8px;
+    }
+
+    .z-10 {
+      z-index: 10;
+    }
+
+    .font-lato {
+      font-family: "Lato", sans-serif;
+    }
+
+    .btn {
+      background-color: #539d98;
+      border-radius: 999px;
+      padding: 12px 28px;
+      font-size: 14px;
+    }
+
+    .border-none {
+      border: none;
+    }
+
+    .w-full {
+      width: 100%;
+    }
+
+    .h-full {
+      height: 100%;
+    }
+
+    .relative {
+      position: relative;
+    }
+
+    .object-fit {
+      object-fit: cover;
+    }
+
+    .text-brand-teal {
+      color: #b8c1ec;
+    }
+
+    .bg-brand-teal {
+      background-color: #539d98;
+    }
+
+    .text-brand-teal-dark {
+      color: #539d98;
+    }
+
+    .bg-white {
+      background-color: #fffffe;
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .text-36px {
+      font-size: 36px;
+    }
+
+    .text-16px {
+      font-size: 16px;
+    }
+
+    .h-560px {
+      height: 560px;
+    }
+
+    /* small screen */
+    @media (min-width: 640px) {
+      .sm\:text-60px {
+        font-size: 60px;
+      }
+
+      .sm\:text-20px {
+        font-size: 20px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .md\:h-689px {
+        height: 689px;
+      }
+    }
+
+    .cover::before {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .container {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .centered {
+      margin-right: auto;
+      margin-left: auto;
+      text-align: center;
+    }
+
+    .card-grid {
+      display: -ms-grid;
+      display: grid;
+      grid-auto-columns: 1fr;
+      grid-column-gap: 2rem;
+      grid-row-gap: 2rem;
+      -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      -ms-grid-rows: auto auto auto;
+      grid-template-rows: auto auto auto;
+    }
+
+    .card {
+      padding: 2.5rem;
+      border-radius: 3px;
+      background-color: #e2daeb;
+    }
+
+    @media screen and (max-width: 991px) {
+      .card-grid {
+        grid-column-gap: 1rem;
+        grid-row-gap: 1rem;
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header
+    class="flex justify-between relative mx-auto items-center px-5 py-4"
+    style="z-index: 10; background-color: #232946"
+  >
+    <div class="flex justify-center items-center">
+      <img src="./logo.png " alt="" style="margin-right: 30px; height: 32px" />
+      <h1 class="text-white">Brain tumor Segmentation based on SSDA</h1>
+    </div>
+    <div class="items-center hidden md:flex">
+      <button class="btn text-white font-bold">Contact us</button>
+    </div>
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 text-white md:hidden items-center"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  </header>
+
+  <section
+    class="relative pb-48 cover justify-center"
+    style="
+      background-image: url(ray.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: rgba(0, 0, 0, 0.4);
+    "
+  >
+    <div
+      style="max-width: 1600px"
+      class="mx-auto md:pt-20 px-5 flex justify-center md:justify-start md:pl-20"
+    >
+      <div class="z-10 relative" style="max-width: 600px">
+        <h1
+          class="text-white text-36px sm:text-60px font-bold leading-none text-center sm:text-left"
+        >
+          Brain Tumor<br />
+          <span class="text-white"> MRI Segmentation</span>
+        </h1>
+        <p
+          class="text-brand-teal text-16px sm:text-20px text-center sm:text-left"
+          style="margin-top: 30px; max-width: 580px"
+        ></p>
+        <button
+          style="margin-top: 30px; border: none; border-radius: 4px"
+          class="bg-brand-teal text-white px-7 py-3 w-full md:w-auto"
+        >
+          Get started
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section style="background-color: #b8c1ec" class="py-16">
+    <div class="container">
+      <div class="centered">
+        <h2
+          style="color: #232946; font-size: 2.5rem; font-weight: 700"
+          class="pb-4"
+        >
+          Try our Demo😊
+        </h2>
+      </div>
+      <div>
+        <gradio-app
+          src="https://lqhsmash-uretinex-net-main-gradio.hf.space"
+        ></gradio-app>
+      </div>
+    </div>
+  </section>
+
+  <section style="background-color: #232946" class="py-16">
+    <div class="container">
+      <div class="centered">
+        <h2
+          style="color: #fffffe; font-size: 2.5rem; font-weight: 700"
+          class="pb-8"
+        >
+          Highlight💡
+        </h2>
+      </div>
+      <div class="card-grid">
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+      </div>
+    </div>
+  </section>
+</body>
