@@ -149,7 +149,7 @@
     }
 
     .container {
-      width: 90%;
+      width: 100%;
       margin-left: auto;
       margin-right: auto;
     }
@@ -166,16 +166,21 @@
       grid-auto-columns: 1fr;
       grid-column-gap: 2rem;
       grid-row-gap: 2rem;
-      -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+      -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
       -ms-grid-rows: auto auto auto;
       grid-template-rows: auto auto auto;
     }
 
     .card {
-      padding: 2.5rem;
-      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      padding: 1.5rem;
+      border-radius: 5px;
       background-color: #e2daeb;
+    }
+    .card span {
+      margin-left: 16px;
     }
 
     @media screen and (max-width: 991px) {
@@ -195,10 +200,13 @@
   >
     <div class="flex justify-center items-center">
       <img src="./logo.png " alt="" style="margin-right: 30px; height: 32px" />
-      <h1 class="text-white">Brain tumor Segmentation based on SSDA</h1>
+      <h1 class="text-white">
+        Brain tumor Segmentation <br />
+        Based on semi-supervised domain adaptation
+      </h1>
     </div>
     <div class="items-center hidden md:flex">
-      <button class="btn text-white font-bold">Contact us</button>
+      <button class="btn text-white font-bold"><a href="mailto:cx_scu@foxmail.com">Contact us</a></button>
     </div>
 
     <svg
@@ -239,19 +247,100 @@
         </h1>
         <p
           class="text-brand-teal text-16px sm:text-20px text-center sm:text-left"
-          style="margin-top: 30px; max-width: 580px"
-        ></p>
+          style="margin-top: 30px; max-width: 600px; word-wrap: break-word"
+        >
+          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        </p>
         <button
           style="margin-top: 30px; border: none; border-radius: 4px"
           class="bg-brand-teal text-white px-7 py-3 w-full md:w-auto"
         >
-          Get started
+          <a href="#demo">Get started</a>
         </button>
       </div>
     </div>
   </section>
 
-  <section style="background-color: #b8c1ec" class="py-16">
+  <section style="background-color: #232946" class="py-16">
+    <div class="container">
+      <div class="md:flex items-center">
+        <div class="md:w-1/2 md:pt-32 align-center">
+          <img src="model.png" class="object-fill" alt="" />
+          <h2 class="text-white ml-12">Our framework</h2>
+        </div>
+        <div class="md:w-1/2 md:px-12">
+          <div class="centered">
+            <h2
+              style="color: #fffffe; font-size: 2.5rem; font-weight: 700"
+              class="pb-8"
+            >
+              Highlight💡
+            </h2>
+          </div>
+          <div class="card-grid">
+            <div class="card">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+                style="width: 22px"
+                class="inline"
+              >
+                <path
+                  d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
+                />
+              </svg>
+              <span class="text-xl"> Utilize existed labeled data fully</span>
+            </div>
+            <div class="card">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                style="width: 26px"
+                class="inline"
+              >
+                <path
+                  d="M256 0c17.7 0 32 14.3 32 32V42.4c93.7 13.9 167.7 88 181.6 181.6H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H469.6c-13.9 93.7-88 167.7-181.6 181.6V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V469.6C130.3 455.7 56.3 381.7 42.4 288H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H42.4C56.3 130.3 130.3 56.3 224 42.4V32c0-17.7 14.3-32 32-32zM107.4 288c12.5 58.3 58.4 104.1 116.6 116.6V384c0-17.7 14.3-32 32-32s32 14.3 32 32v20.6c58.3-12.5 104.1-58.4 116.6-116.6H384c-17.7 0-32-14.3-32-32s14.3-32 32-32h20.6C392.1 165.7 346.3 119.9 288 107.4V128c0 17.7-14.3 32-32 32s-32-14.3-32-32V107.4C165.7 119.9 119.9 165.7 107.4 224H128c17.7 0 32 14.3 32 32s-14.3 32-32 32H107.4zM256 224a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
+                />
+              </svg>
+              <span class="text-xl">
+                Take the labeled images in target domain into account</span
+              >
+            </div>
+            <div class="card">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 384 512"
+                width="20px"
+                class="inline"
+              >
+                <path
+                  d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2l0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4l0 0c19.8 27.1 39.7 54.4 49.2 86.2H272zM192 512c44.2 0 80-35.8 80-80V416H112v16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"
+                />
+              </svg>
+              <span class="text-xl"> Propose a novel framework on SSDA</span>
+            </div>
+            <div class="card">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 576 512"
+                width="30px"
+                class="inline"
+              >
+                <path
+                  d="M224 24V80H168c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h56v56c0 13.3 10.7 24 24 24h48c13.3 0 24-10.7 24-24V176h56c13.3 0 24-10.7 24-24V104c0-13.3-10.7-24-24-24H320V24c0-13.3-10.7-24-24-24H248c-13.3 0-24 10.7-24 24zM559.7 392.2c17.8-13.1 21.6-38.1 8.5-55.9s-38.1-21.6-55.9-8.5L392.6 416H272c-8.8 0-16-7.2-16-16s7.2-16 16-16h16 64c17.7 0 32-14.3 32-32s-14.3-32-32-32H288 272 193.7c-29.1 0-57.3 9.9-80 28L68.8 384H32c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32H192 352.5c29 0 57.3-9.3 80.7-26.5l126.6-93.3zm-367-8.2l.9 0 0 0c-.3 0-.6 0-.9 0z"
+                />
+              </svg>
+              <span class="text-xl">
+                Achieve a desirable outcome to help doctors make diagnosis</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background-color: #8283a7" class="py-16" id="demo">
     <div class="container">
       <div class="centered">
         <h2
@@ -262,27 +351,18 @@
         </h2>
       </div>
       <div>
-        <gradio-app space="https://a-polarbear-mri-demo.hf.space"></gradio-app>
+        <gradio-app host="https://a-polarbear-mri-demo.hf.space"></gradio-app>
       </div>
     </div>
   </section>
 
-  <section style="background-color: #232946" class="py-16">
-    <div class="container">
-      <div class="centered">
-        <h2
-          style="color: #fffffe; font-size: 2.5rem; font-weight: 700"
-          class="pb-8"
-        >
-          Highlight💡
-        </h2>
-      </div>
-      <div class="card-grid">
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-      </div>
+  <section style="background-color: #232946" class="py-6">
+    <div class="text-white flex items-center justify-center">
+      <img src="footer-logo.png" alt="" class="mr-16"/>
+    <ul>
+      <li>Contact:</li>
+      <li style="word-wrap: break-word;width:400px">Sichuan University Jiang’an Campus: <br/>Chuanda Road ,Shuangliu County,Chengdu,<br/>610207</li>
+    </ul>
     </div>
   </section>
 </body>
