@@ -191,6 +191,46 @@
         grid-template-columns: 1fr;
       }
     }
+
+    .popover_wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    .popover_content {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      left: -190px;
+      top: 80px;
+      transform: translate(0, 10px);
+      background-color: #54546c;
+      padding: 1.5rem;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+      width: 500px;
+      color: white;
+    }
+    .popover_content:before {
+      position: absolute;
+      z-index: -1;
+      content: "";
+      right: calc(50% - 10px);
+      top: -10px;
+      border-style: solid;
+      border-width: 0 10px 10px 10px;
+      border-color: transparent transparent #54546c transparent;
+      transition-duration: 0.3s;
+      transition-property: transform;
+    }
+    .popover_wrapper:hover .popover_content {
+      z-index: 10;
+      opacity: 1;
+      visibility: visible;
+      transform: translate(0, -20px);
+      transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+    }
+    .popover_message {
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -199,14 +239,33 @@
     style="z-index: 10; background-color: #232946"
   >
     <div class="flex justify-center items-center">
-      <img src="./logo.png " alt="" style="margin-right: 30px; height: 32px" />
+      <img
+        src="./logo.png "
+        alt=""
+        style="margin-left: 32px; margin-right: 30px; height: 32px"
+      />
       <h1 class="text-white">
         Brain tumor Segmentation <br />
         Based on semi-supervised domain adaptation
       </h1>
     </div>
     <div class="items-center hidden md:flex">
-      <button class="btn text-white font-bold"><a href="mailto:cx_scu@foxmail.com">Contact us</a></button>
+      <div class="popover_wrapper">
+        <button class="btn text-white font-bold popover_title mr-36">
+          <a href="mailto:cx_scu@foxmail.com">Contact us</a>
+        </button>
+        <div class="popover_content">
+          <p class="popover_message">2023年大学生创新创业项目</p>
+          <p class="popover_message font-bold">
+            基于半监督域自适应的恶性肿瘤医学影像分割
+          </p>
+          <p class="popover_message">指导老师：王艳</p>
+          <p class="popover_message">
+            项目成员：陈骁 陈佳倍 梅佳期 黄诗晋 张祺珲
+          </p>
+          <p class="popover_message">邮箱：cx_scu@foxmail.com</p>
+        </div>
+      </div>
     </div>
 
     <svg
@@ -238,7 +297,7 @@
       style="max-width: 1600px"
       class="mx-auto md:pt-20 px-5 flex justify-center md:justify-start md:pl-20"
     >
-      <div class="z-10 relative" style="max-width: 600px">
+      <div class="z-10 relative" style="max-width: 800px">
         <h1
           class="text-white text-36px sm:text-60px font-bold leading-none text-center sm:text-left"
         >
@@ -247,9 +306,16 @@
         </h1>
         <p
           class="text-brand-teal text-16px sm:text-20px text-center sm:text-left"
-          style="margin-top: 30px; max-width: 600px; word-wrap: break-word"
+          style="margin-top: 30px; max-width: 700px; word-wrap: break-word"
         >
-          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+          According to WHO, brain tumor is divided into non malignant and
+          malignant brain tumor. Segmenting a image of brain is a critical step
+          to make diagnosis and treatment plan. However, it's quite difficult
+          and challenging to segment since the medical images are diffirent from
+          the normal RGB images. Hence, we try to fully utilize the existed
+          segmented brain tumor images and take the labled data in traget domain
+          into accout to train our network, aiming at performing better than
+          using unlabled target domain images singlely.
         </p>
         <button
           style="margin-top: 30px; border: none; border-radius: 4px"
@@ -266,7 +332,7 @@
       <div class="md:flex items-center">
         <div class="md:w-1/2 md:pt-32 align-center">
           <img src="model.png" class="object-fill" alt="" />
-          <h2 class="text-white ml-12">Our framework</h2>
+          <h2 class="text-white centered text-xl font-bold">Our framework</h2>
         </div>
         <div class="md:w-1/2 md:px-12">
           <div class="centered">
@@ -349,7 +415,9 @@
         >
           Try our Demo🚀
         </h2>
-        <p> Upload a brain MRI image file, or try out one of the examples below! </p>
+        <p>
+          Upload a brain MRI image file, or try out one of the examples below!
+        </p>
       </div>
       <div>
         <gradio-app host="https://a-polarbear-mri-demo.hf.space"></gradio-app>
@@ -359,11 +427,14 @@
 
   <section style="background-color: #232946" class="py-6">
     <div class="text-white flex items-center justify-center">
-      <img src="footer-logo.png" alt="" class="mr-16"/>
-    <ul>
-      <li>Contact:</li>
-      <li style="word-wrap: break-word;width:400px">Sichuan University Jiang’an Campus: <br/>Chuanda Road ,Shuangliu County,Chengdu,<br/>610207</li>
-    </ul>
+      <img src="footer-logo.png" alt="" class="mr-16" />
+      <ul>
+        <li>Contact:</li>
+        <li style="word-wrap: break-word; width: 400px">
+          Sichuan University Jiang’an Campus: <br />Chuanda Road ,Shuangliu
+          County,Chengdu,<br />610207
+        </li>
+      </ul>
     </div>
   </section>
 </body>
